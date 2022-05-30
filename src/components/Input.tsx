@@ -1,6 +1,5 @@
 import React,{ useState } from 'react';
 import { FaPlusSquare } from 'react-icons/fa'
-import useRequest from '../hooks/useRequest'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { get_data } from '../Redux/data_reducer';
 import { ITodo } from '../data/types';
@@ -14,9 +13,10 @@ type options = {
 
 function Input() {
     const dispatch = useAppDispatch()
-    const[value,setValue] = useState('')
     const data = useAppSelector(state => state.data_reducer.data)
     const url = useAppSelector(state => state.redux.url)
+    const[value,setValue] = useState('')
+
 
     const addNewTodo = (title:string) => {
         let id = data.length ? data[data.length - 1].id + 1 : 1;
@@ -31,7 +31,8 @@ function Input() {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         }
-        useRequest(url,options)
+        try {fetch(url, options)}
+        catch (error) {console.error(error)}  
     }
 
     const onSubmit = (event: React.SyntheticEvent) => {

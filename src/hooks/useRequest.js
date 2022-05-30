@@ -1,12 +1,5 @@
-const useRequest = (url = '', options = null, massage = null) => {
-    try {
-        fetch(url, options);
-    } 
-    catch (error) {
-        massage = error.message;
-    } 
-    finally {
-        return massage;
-    }
+const useRequest = (url = '', options = null,massage = null) => {
+    try {fetch(url, options)}
+    catch (error) {console.error(error)}  
 }
 export default useRequest;

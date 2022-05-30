@@ -1,7 +1,6 @@
 import React from 'react'
 import { MdOutlineCheckBoxOutlineBlank,MdOutlineCheckBox } from 'react-icons/md'
 import { CgTrash } from 'react-icons/cg'
-import useRequest from '../hooks/useRequest'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { get_data } from '../Redux/data_reducer';
 import './todos.scss';
@@ -24,16 +23,18 @@ const Todo = () => {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         }
-        const newURL = `${url}/${id}`
-        const raw = useRequest(newURL,options)
+        const new_url = `${url}/${id}`
+        try {fetch(new_url, options)}
+        catch (error) {console.error(error)}  
     }
     
     const deleteTodo = (id: number) => {
         let updatedTodos = data.filter(todo => todo.id !== id );
         dispatch(get_data(updatedTodos)) //==============>
         const options = { method: 'DELETE' }
-        const newURL = `${url}/${id}`
-        const raw = useRequest(newURL,options)
+        const new_url = `${url}/${id}`
+        try {fetch(new_url, options)}
+        catch (error) {console.error(error)}  
     }
 
     return (
