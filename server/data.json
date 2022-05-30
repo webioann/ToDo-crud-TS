@@ -1,19 +1,14 @@
 {
   "todos": [
     {
-      "id": 1,
-      "checked": true,
-      "title": "new work flow"
-    },
-    {
-      "id": 2,
-      "checked": true,
-      "title": "hard working process"
-    },
-    {
-      "id": 3,
+      "id": 5,
       "checked": false,
-      "title": "ts-todo"
+      "title": "control todo item"
+    },
+    {
+      "id": 6,
+      "checked": false,
+      "title": "super control"
     }
   ]
 }

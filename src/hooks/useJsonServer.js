@@ -1,14 +1,14 @@
-import React,{ useState,useEffect } from 'react'
+import { useState,useEffect } from 'react'
 import axios from 'axios'
-import { useSelector,useDispatch } from 'react-redux'
-import { get_data } from '../Redux/reducer';
+import { useAppSelector,useAppDispatch } from '../Redux/store'
+import { get_data } from '../Redux/data_reducer';
 
 export const useJsonServer = () => {  //= this function gets data from local json-server(result in axios-start/server/data.json) =
     
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
-    const dispatch = useDispatch()
-    const url = useSelector(state => state.redux.url)
+    const dispatch = useAppDispatch()
+    const url = useAppSelector(state => state.redux.url)
 
     useEffect(() => {
         try{

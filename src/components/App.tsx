@@ -3,14 +3,14 @@ import Input from './Input'
 import TodosList from './TodosList'
 import Todo from './Todo'
 import TodoEmpty from './TodoEmpty'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../Redux/store'
 import { useJsonServer } from '../hooks/useJsonServer'
 import './app.scss'
 
-function App() {
+const App:React.FC = () => {
 
     const { error,loading } = useJsonServer()
-    const data = useSelector(state => state.redux.data)
+    const data = useAppSelector(state => state.data_reducer.data)
     
     return (
         <div className='container'>

@@ -1,20 +1,27 @@
 import React,{ useState } from 'react';
 import { FaPlusSquare } from 'react-icons/fa'
 import useRequest from '../hooks/useRequest'
-import { useSelector,useDispatch } from 'react-redux'
-import { get_data } from '../Redux/reducer';
+import { useAppSelector,useAppDispatch } from '../Redux/store'
+import { get_data } from '../Redux/data_reducer';
+import { ITodo } from '../data/types';
 import './input.scss'
 
+type options = {
+    method: string;
+    body: string;
+    headers: object;
+}
+
 function Input() {
-
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const[value,setValue] = useState('')
-    const data = useSelector(state => state.redux.data)
-    const url = useSelector(state => state.redux.url)
+    const data = useAppSelector(state => state.data_reducer.data)
+    const url = useAppSelector(state => state.redux.url)
 
-    const addNewTodo = (title) => {
+    const addNewTodo = (title:string) => {
         let id = data.length ? data[data.length - 1].id + 1 : 1;
         let newTodo = { id,checked: false,title}
+        console.log(` newTodo = ${newTodo}`);
         let updatedTodos = [...data,newTodo]
         dispatch(get_data(updatedTodos))
         const options = {
@@ -27,7 +34,7 @@ function Input() {
         useRequest(url,options)
     }
 
-    const onSubmit = (event) => {
+    const onSubmit = (event: React.SyntheticEvent) => {
         event.preventDefault();
         if(!value) return;
         setValue('')

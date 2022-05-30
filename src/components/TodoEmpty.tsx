@@ -1,7 +1,7 @@
 import React from 'react'
 import './todos.scss'
 
-function TodoEmpty() {
+const TodoEmpty:React.FC = () => {
 
     return (
         <li className='item'>
