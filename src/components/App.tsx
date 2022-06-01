@@ -9,7 +9,7 @@ import './app.scss'
 
 const App:React.FC = () => {
 
-    const { error,loading } = useJsonServer()
+    const { errors,loading } = useJsonServer()
     const data = useAppSelector(state => state.data_reducer.data)
     
     return (

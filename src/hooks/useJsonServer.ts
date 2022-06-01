@@ -1,5 +1,4 @@
 import { useState,useEffect } from 'react'
-import axios from 'axios'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { get_data } from '../Redux/data_reducer';
 

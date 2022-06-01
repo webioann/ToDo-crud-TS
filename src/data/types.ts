@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
-
 // = TYPES and INTERFASES
-export interface IChildrenType { children: JSX.Element };
+export interface children_type { 
+    children: JSX.Element 
+};
 
 export interface ITodo { 
     id: number;

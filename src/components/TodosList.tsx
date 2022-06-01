@@ -1,8 +1,8 @@
 import React from 'react'
-import { IChildrenType } from '../data/types'
+import { children_type } from '../data/types'
 import './todos.scss'
 
-const TodosList:React.FC<IChildrenType> = ({ children }) => {
+const TodosList:React.FC<children_type> = ({ children }) => {
 
     return (
         <ul className='list'>

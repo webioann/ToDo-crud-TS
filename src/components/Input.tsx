@@ -2,7 +2,6 @@ import React,{ useState } from 'react';
 import { FaPlusSquare } from 'react-icons/fa'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { get_data } from '../Redux/data_reducer';
-import { ITodo } from '../data/types';
 import './input.scss'
 
 type options = {
@@ -18,7 +17,7 @@ function Input() {
     const[value,setValue] = useState('')
 
 
-    const addNewTodo = (title:string) => {
+    const addNewTodo = ( title:  string ) => {
         let id = data.length ? data[data.length - 1].id + 1 : 1;
         let newTodo = { id,checked: false,title}
         console.log(` newTodo = ${newTodo}`);
@@ -35,7 +34,7 @@ function Input() {
         catch (error) {console.error(error)}  
     }
 
-    const onSubmit = (event: React.SyntheticEvent) => {
+    const onSubmited = (event: React.SyntheticEvent) => {
         event.preventDefault();
         if(!value) return;
         setValue('')
@@ -43,7 +42,7 @@ function Input() {
     }
 
     return (
-        <form className='form' onSubmit={onSubmit}>
+        <form className='form' onSubmit={onSubmited}>
             <input
                 type='text'
                 id='input'
@@ -55,7 +54,7 @@ function Input() {
             <FaPlusSquare  
                 className='icon submit'
                 type='submit'
-                onClick={onSubmit}
+                onClick={onSubmited}
             />
         </form>
     )

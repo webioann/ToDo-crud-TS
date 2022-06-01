@@ -1,18 +1,19 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit"
 
-type Todo = {
+type TodoType = {
     id: number;
     checked: boolean;
     title: string; 
 }
-type TodoData = { data: Todo[] }
-const initialState:TodoData = { data: [] }
+type TodoDataType = { data: TodoType[] }
+
+const initialState:TodoDataType = { data: [] }
 
 const reducer = createSlice({
     name: "data_reducer",
     initialState,
     reducers: {
-        get_data: (state, actions:PayloadAction<Todo[]>) => {state.data = actions.payload},
+        get_data: (state, actions:PayloadAction<TodoType[]>) => {state.data = actions.payload},
     },
 });
 
