@@ -5,7 +5,8 @@ type TodoType = {
     checked: boolean;
     title: string; 
 }
-type TodoDataType = { data: TodoType[] }
+
+export type TodoDataType = { data: TodoType[] }
 
 const initialState:TodoDataType = { data: [] }
 

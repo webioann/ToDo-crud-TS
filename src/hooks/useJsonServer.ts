@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { get_data } from '../Redux/data_reducer';
+import { get_data } from '../Redux/data_reducer'
+import { TodoDataType } from '../Redux/data_reducer';
 
 export const useJsonServer = () => {  //= this function gets data from local json-server(result in axios-start/server/data.json) =
     

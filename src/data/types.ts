@@ -3,9 +3,8 @@ export interface children_type {
     children: JSX.Element 
 };
 
-export interface ITodo { 
+export type TodoType = {
     id: number;
     checked: boolean;
-    title: string;
-};
-
+    title: string; 
+}
